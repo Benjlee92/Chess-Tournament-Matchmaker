@@ -7,13 +7,90 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4579DE397B102977229422F4 /* Pods_Chess_Tourney_MatchupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51F520841658F352A9B02787 /* Pods_Chess_Tourney_MatchupUITests.framework */; };
+		52D154AA67AED2D15AF99922 /* Pods_Chess_Tourney_Matchup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB50346B9AC23894AC9890C /* Pods_Chess_Tourney_Matchup.framework */; };
 		780C915721B8F01B0044BD43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C915621B8F01B0044BD43 /* AppDelegate.swift */; };
-		780C915921B8F01B0044BD43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C915821B8F01B0044BD43 /* ViewController.swift */; };
+		780C915921B8F01B0044BD43 /* AddPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C915821B8F01B0044BD43 /* AddPlayersViewController.swift */; };
 		780C915C21B8F01B0044BD43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 780C915A21B8F01B0044BD43 /* Main.storyboard */; };
 		780C915E21B8F01B0044BD43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 780C915D21B8F01B0044BD43 /* Assets.xcassets */; };
 		780C916121B8F01B0044BD43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 780C915F21B8F01B0044BD43 /* LaunchScreen.storyboard */; };
 		780C916C21B8F01C0044BD43 /* Chess_Tourney_MatchupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C916B21B8F01C0044BD43 /* Chess_Tourney_MatchupTests.swift */; };
 		780C917721B8F01C0044BD43 /* Chess_Tourney_MatchupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C917621B8F01C0044BD43 /* Chess_Tourney_MatchupUITests.swift */; };
+		7821341521DB94CC00185E59 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821341421DB94CC00185E59 /* HomeViewController.swift */; };
+		7821341921DB96B500185E59 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821341821DB96B500185E59 /* HomeCollectionViewCell.swift */; };
+		7821341B21DBA00800185E59 /* HomeNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821341A21DBA00800185E59 /* HomeNavigationBar.swift */; };
+		7821341D21DBB0E700185E59 /* CreateTournamentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821341C21DBB0E700185E59 /* CreateTournamentCollectionViewCell.swift */; };
+		7821341F21DBCEBD00185E59 /* CreateTournamentOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821341E21DBCEBD00185E59 /* CreateTournamentOptionsView.swift */; };
+		7821342121DC958C00185E59 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821342021DC958C00185E59 /* TextField.swift */; };
+		7821342321DCC9FA00185E59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7821342221DCC9F900185E59 /* GoogleService-Info.plist */; };
+		7821342421DCC9FA00185E59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7821342221DCC9F900185E59 /* GoogleService-Info.plist */; };
+		7821342521DCC9FA00185E59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7821342221DCC9F900185E59 /* GoogleService-Info.plist */; };
+		7828E6BE21CF24F9003394E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6BD21CF24F9003394E8 /* Extensions.swift */; };
+		78430BB721CF2A7900FCA7D0 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430BB621CF2A7900FCA7D0 /* PlayerCell.swift */; };
+		78430BCB21CF2BC400FCA7D0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BB921CF2BC200FCA7D0 /* Roboto-Bold.ttf */; };
+		78430BCC21CF2BC400FCA7D0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BB921CF2BC200FCA7D0 /* Roboto-Bold.ttf */; };
+		78430BCD21CF2BC400FCA7D0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BB921CF2BC200FCA7D0 /* Roboto-Bold.ttf */; };
+		78430BCE21CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBA21CF2BC200FCA7D0 /* Roboto-BoldItalic.ttf */; };
+		78430BCF21CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBA21CF2BC200FCA7D0 /* Roboto-BoldItalic.ttf */; };
+		78430BD021CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBA21CF2BC200FCA7D0 /* Roboto-BoldItalic.ttf */; };
+		78430BD121CF2BC400FCA7D0 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBB21CF2BC200FCA7D0 /* Roboto-Light.ttf */; };
+		78430BD221CF2BC400FCA7D0 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBB21CF2BC200FCA7D0 /* Roboto-Light.ttf */; };
+		78430BD321CF2BC400FCA7D0 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBB21CF2BC200FCA7D0 /* Roboto-Light.ttf */; };
+		78430BD421CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBC21CF2BC200FCA7D0 /* Roboto-Thin.ttf */; };
+		78430BD521CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBC21CF2BC200FCA7D0 /* Roboto-Thin.ttf */; };
+		78430BD621CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBC21CF2BC200FCA7D0 /* Roboto-Thin.ttf */; };
+		78430BD721CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBD21CF2BC200FCA7D0 /* Roboto-Regular.ttf */; };
+		78430BD821CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBD21CF2BC200FCA7D0 /* Roboto-Regular.ttf */; };
+		78430BD921CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBD21CF2BC200FCA7D0 /* Roboto-Regular.ttf */; };
+		78430BDA21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBE21CF2BC300FCA7D0 /* Roboto-Italic.ttf */; };
+		78430BDB21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBE21CF2BC300FCA7D0 /* Roboto-Italic.ttf */; };
+		78430BDC21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBE21CF2BC300FCA7D0 /* Roboto-Italic.ttf */; };
+		78430BDD21CF2BC400FCA7D0 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBF21CF2BC300FCA7D0 /* RobotoCondensed-Bold.ttf */; };
+		78430BDE21CF2BC400FCA7D0 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBF21CF2BC300FCA7D0 /* RobotoCondensed-Bold.ttf */; };
+		78430BDF21CF2BC400FCA7D0 /* RobotoCondensed-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BBF21CF2BC300FCA7D0 /* RobotoCondensed-Bold.ttf */; };
+		78430BE021CF2BC400FCA7D0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC021CF2BC300FCA7D0 /* Roboto-Medium.ttf */; };
+		78430BE121CF2BC400FCA7D0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC021CF2BC300FCA7D0 /* Roboto-Medium.ttf */; };
+		78430BE221CF2BC400FCA7D0 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC021CF2BC300FCA7D0 /* Roboto-Medium.ttf */; };
+		78430BE321CF2BC400FCA7D0 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC121CF2BC300FCA7D0 /* RobotoCondensed-LightItalic.ttf */; };
+		78430BE421CF2BC400FCA7D0 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC121CF2BC300FCA7D0 /* RobotoCondensed-LightItalic.ttf */; };
+		78430BE521CF2BC400FCA7D0 /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC121CF2BC300FCA7D0 /* RobotoCondensed-LightItalic.ttf */; };
+		78430BE621CF2BC400FCA7D0 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC221CF2BC300FCA7D0 /* Roboto-ThinItalic.ttf */; };
+		78430BE721CF2BC400FCA7D0 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC221CF2BC300FCA7D0 /* Roboto-ThinItalic.ttf */; };
+		78430BE821CF2BC400FCA7D0 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC221CF2BC300FCA7D0 /* Roboto-ThinItalic.ttf */; };
+		78430BE921CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC321CF2BC300FCA7D0 /* RobotoCondensed-BoldItalic.ttf */; };
+		78430BEA21CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC321CF2BC300FCA7D0 /* RobotoCondensed-BoldItalic.ttf */; };
+		78430BEB21CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC321CF2BC300FCA7D0 /* RobotoCondensed-BoldItalic.ttf */; };
+		78430BEC21CF2BC400FCA7D0 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC421CF2BC300FCA7D0 /* RobotoCondensed-Light.ttf */; };
+		78430BED21CF2BC400FCA7D0 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC421CF2BC300FCA7D0 /* RobotoCondensed-Light.ttf */; };
+		78430BEE21CF2BC400FCA7D0 /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC421CF2BC300FCA7D0 /* RobotoCondensed-Light.ttf */; };
+		78430BEF21CF2BC400FCA7D0 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC521CF2BC300FCA7D0 /* RobotoCondensed-Italic.ttf */; };
+		78430BF021CF2BC400FCA7D0 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC521CF2BC300FCA7D0 /* RobotoCondensed-Italic.ttf */; };
+		78430BF121CF2BC400FCA7D0 /* RobotoCondensed-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC521CF2BC300FCA7D0 /* RobotoCondensed-Italic.ttf */; };
+		78430BF221CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC621CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf */; };
+		78430BF321CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC621CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf */; };
+		78430BF421CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC621CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf */; };
+		78430BF521CF2BC400FCA7D0 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC721CF2BC400FCA7D0 /* Roboto-LightItalic.ttf */; };
+		78430BF621CF2BC400FCA7D0 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC721CF2BC400FCA7D0 /* Roboto-LightItalic.ttf */; };
+		78430BF721CF2BC400FCA7D0 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC721CF2BC400FCA7D0 /* Roboto-LightItalic.ttf */; };
+		78430BF821CF2BC400FCA7D0 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC821CF2BC400FCA7D0 /* Roboto-Black.ttf */; };
+		78430BF921CF2BC400FCA7D0 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC821CF2BC400FCA7D0 /* Roboto-Black.ttf */; };
+		78430BFA21CF2BC400FCA7D0 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC821CF2BC400FCA7D0 /* Roboto-Black.ttf */; };
+		78430BFB21CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC921CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf */; };
+		78430BFC21CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC921CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf */; };
+		78430BFD21CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BC921CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf */; };
+		78430BFE21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BCA21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf */; };
+		78430BFF21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BCA21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf */; };
+		78430C0021CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BCA21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf */; };
+		78430C0221CF40EC00FCA7D0 /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C0121CF40EC00FCA7D0 /* AddPlayerViewController.swift */; };
+		78430C0521CF6C1C00FCA7D0 /* NoPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C0421CF6C1C00FCA7D0 /* NoPlayerCell.swift */; };
+		78430C0721D071A500FCA7D0 /* UnTournamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C0621D071A500FCA7D0 /* UnTournamentViewController.swift */; };
+		78430C0921D0740800FCA7D0 /* MatchupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C0821D0740800FCA7D0 /* MatchupView.swift */; };
+		78430C0B21D0764600FCA7D0 /* MatchupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C0A21D0764600FCA7D0 /* MatchupCell.swift */; };
+		78430C1221D0971100FCA7D0 /* TournamentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C1121D0971100FCA7D0 /* TournamentViewController.swift */; };
+		78430C1521D0A0ED00FCA7D0 /* MatchupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C1421D0A0ED00FCA7D0 /* MatchupTableViewCell.swift */; };
+		78430C1721D0CC6F00FCA7D0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430C1621D0CC6F00FCA7D0 /* File.swift */; };
+		78D2965A21B9C9F70051E597 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D2965921B9C9F70051E597 /* Player.swift */; };
+		C688949E5BFA4167D3AFBA90 /* Pods_Chess_Tourney_MatchupTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BA9AA7C1235316E79F5C7B /* Pods_Chess_Tourney_MatchupTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +111,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36726B869F053075E6E01BE0 /* Pods-Chess Tourney MatchupUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Tourney MatchupUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Tourney MatchupUITests/Pods-Chess Tourney MatchupUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		51F520841658F352A9B02787 /* Pods_Chess_Tourney_MatchupUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chess_Tourney_MatchupUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		780C915321B8F01B0044BD43 /* Chess Tourney Matchup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Tourney Matchup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		780C915621B8F01B0044BD43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		780C915821B8F01B0044BD43 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		780C915821B8F01B0044BD43 /* AddPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayersViewController.swift; sourceTree = "<group>"; };
 		780C915B21B8F01B0044BD43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		780C915D21B8F01B0044BD43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		780C916021B8F01B0044BD43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +126,49 @@
 		780C917221B8F01C0044BD43 /* Chess Tourney MatchupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Chess Tourney MatchupUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		780C917621B8F01C0044BD43 /* Chess_Tourney_MatchupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chess_Tourney_MatchupUITests.swift; sourceTree = "<group>"; };
 		780C917821B8F01C0044BD43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7821341421DB94CC00185E59 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7821341821DB96B500185E59 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		7821341A21DBA00800185E59 /* HomeNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationBar.swift; sourceTree = "<group>"; };
+		7821341C21DBB0E700185E59 /* CreateTournamentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTournamentCollectionViewCell.swift; sourceTree = "<group>"; };
+		7821341E21DBCEBD00185E59 /* CreateTournamentOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTournamentOptionsView.swift; sourceTree = "<group>"; };
+		7821342021DC958C00185E59 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		7821342221DCC9F900185E59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7828E6BD21CF24F9003394E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		78430BB621CF2A7900FCA7D0 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
+		78430BB921CF2BC200FCA7D0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		78430BBA21CF2BC200FCA7D0 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		78430BBB21CF2BC200FCA7D0 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		78430BBC21CF2BC200FCA7D0 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		78430BBD21CF2BC200FCA7D0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		78430BBE21CF2BC300FCA7D0 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		78430BBF21CF2BC300FCA7D0 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		78430BC021CF2BC300FCA7D0 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		78430BC121CF2BC300FCA7D0 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		78430BC221CF2BC300FCA7D0 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		78430BC321CF2BC300FCA7D0 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		78430BC421CF2BC300FCA7D0 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		78430BC521CF2BC300FCA7D0 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		78430BC621CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		78430BC721CF2BC400FCA7D0 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		78430BC821CF2BC400FCA7D0 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		78430BC921CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		78430BCA21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		78430C0121CF40EC00FCA7D0 /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
+		78430C0421CF6C1C00FCA7D0 /* NoPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoPlayerCell.swift; sourceTree = "<group>"; };
+		78430C0621D071A500FCA7D0 /* UnTournamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnTournamentViewController.swift; sourceTree = "<group>"; };
+		78430C0821D0740800FCA7D0 /* MatchupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupView.swift; sourceTree = "<group>"; };
+		78430C0A21D0764600FCA7D0 /* MatchupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupCell.swift; sourceTree = "<group>"; };
+		78430C1121D0971100FCA7D0 /* TournamentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewController.swift; sourceTree = "<group>"; };
+		78430C1421D0A0ED00FCA7D0 /* MatchupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchupTableViewCell.swift; sourceTree = "<group>"; };
+		78430C1621D0CC6F00FCA7D0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		78D2965921B9C9F70051E597 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7AB50346B9AC23894AC9890C /* Pods_Chess_Tourney_Matchup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chess_Tourney_Matchup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94BA9AA7C1235316E79F5C7B /* Pods_Chess_Tourney_MatchupTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chess_Tourney_MatchupTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9865ACE48966C4BB315973D2 /* Pods-Chess Tourney MatchupTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Tourney MatchupTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Tourney MatchupTests/Pods-Chess Tourney MatchupTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BABAE563678E155F863D8B64 /* Pods-Chess Tourney Matchup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Tourney Matchup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Tourney Matchup/Pods-Chess Tourney Matchup.debug.xcconfig"; sourceTree = "<group>"; };
+		CE74AA880C52F0C7C84CF587 /* Pods-Chess Tourney Matchup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Tourney Matchup.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Tourney Matchup/Pods-Chess Tourney Matchup.release.xcconfig"; sourceTree = "<group>"; };
+		E6E4FFA96534644F2927B1A5 /* Pods-Chess Tourney MatchupUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Tourney MatchupUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Tourney MatchupUITests/Pods-Chess Tourney MatchupUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F4FF3B093ED63F1F44DAAEDE /* Pods-Chess Tourney MatchupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chess Tourney MatchupTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chess Tourney MatchupTests/Pods-Chess Tourney MatchupTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52D154AA67AED2D15AF99922 /* Pods_Chess_Tourney_Matchup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C688949E5BFA4167D3AFBA90 /* Pods_Chess_Tourney_MatchupTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +192,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4579DE397B102977229422F4 /* Pods_Chess_Tourney_MatchupUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B5D5839A31DC897E21E4DEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AB50346B9AC23894AC9890C /* Pods_Chess_Tourney_Matchup.framework */,
+				94BA9AA7C1235316E79F5C7B /* Pods_Chess_Tourney_MatchupTests.framework */,
+				51F520841658F352A9B02787 /* Pods_Chess_Tourney_MatchupUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F2C8D80365465A5C1D6C036 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BABAE563678E155F863D8B64 /* Pods-Chess Tourney Matchup.debug.xcconfig */,
+				CE74AA880C52F0C7C84CF587 /* Pods-Chess Tourney Matchup.release.xcconfig */,
+				9865ACE48966C4BB315973D2 /* Pods-Chess Tourney MatchupTests.debug.xcconfig */,
+				F4FF3B093ED63F1F44DAAEDE /* Pods-Chess Tourney MatchupTests.release.xcconfig */,
+				36726B869F053075E6E01BE0 /* Pods-Chess Tourney MatchupUITests.debug.xcconfig */,
+				E6E4FFA96534644F2927B1A5 /* Pods-Chess Tourney MatchupUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		780C914A21B8F01B0044BD43 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +229,8 @@
 				780C916A21B8F01C0044BD43 /* Chess Tourney MatchupTests */,
 				780C917521B8F01C0044BD43 /* Chess Tourney MatchupUITests */,
 				780C915421B8F01B0044BD43 /* Products */,
+				4F2C8D80365465A5C1D6C036 /* Pods */,
+				3B5D5839A31DC897E21E4DEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,11 +248,18 @@
 			isa = PBXGroup;
 			children = (
 				780C915621B8F01B0044BD43 /* AppDelegate.swift */,
-				780C915821B8F01B0044BD43 /* ViewController.swift */,
-				780C915A21B8F01B0044BD43 /* Main.storyboard */,
+				78430C0621D071A500FCA7D0 /* UnTournamentViewController.swift */,
+				78430C0D21D08D5100FCA7D0 /* Controllers */,
+				78430C0E21D08D7600FCA7D0 /* Data Models */,
+				78430C0C21D07E5300FCA7D0 /* Views */,
+				78430C1321D0A0AD00FCA7D0 /* TableViewCells */,
+				78430C0321CF6BEE00FCA7D0 /* CollectionViewCells */,
 				780C915D21B8F01B0044BD43 /* Assets.xcassets */,
+				780C915A21B8F01B0044BD43 /* Main.storyboard */,
 				780C915F21B8F01B0044BD43 /* LaunchScreen.storyboard */,
 				780C916221B8F01B0044BD43 /* Info.plist */,
+				7821342221DCC9F900185E59 /* GoogleService-Info.plist */,
+				78430BB821CF2BAF00FCA7D0 /* Fonts */,
 			);
 			path = "Chess Tourney Matchup";
 			sourceTree = "<group>";
@@ -125,6 +282,83 @@
 			path = "Chess Tourney MatchupUITests";
 			sourceTree = "<group>";
 		};
+		78430BB821CF2BAF00FCA7D0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				78430BC821CF2BC400FCA7D0 /* Roboto-Black.ttf */,
+				78430BC921CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf */,
+				78430BB921CF2BC200FCA7D0 /* Roboto-Bold.ttf */,
+				78430BBA21CF2BC200FCA7D0 /* Roboto-BoldItalic.ttf */,
+				78430BBE21CF2BC300FCA7D0 /* Roboto-Italic.ttf */,
+				78430BBB21CF2BC200FCA7D0 /* Roboto-Light.ttf */,
+				78430BC721CF2BC400FCA7D0 /* Roboto-LightItalic.ttf */,
+				78430BC021CF2BC300FCA7D0 /* Roboto-Medium.ttf */,
+				78430BC621CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf */,
+				78430BBD21CF2BC200FCA7D0 /* Roboto-Regular.ttf */,
+				78430BBC21CF2BC200FCA7D0 /* Roboto-Thin.ttf */,
+				78430BC221CF2BC300FCA7D0 /* Roboto-ThinItalic.ttf */,
+				78430BBF21CF2BC300FCA7D0 /* RobotoCondensed-Bold.ttf */,
+				78430BC321CF2BC300FCA7D0 /* RobotoCondensed-BoldItalic.ttf */,
+				78430BC521CF2BC300FCA7D0 /* RobotoCondensed-Italic.ttf */,
+				78430BC421CF2BC300FCA7D0 /* RobotoCondensed-Light.ttf */,
+				78430BC121CF2BC300FCA7D0 /* RobotoCondensed-LightItalic.ttf */,
+				78430BCA21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		78430C0321CF6BEE00FCA7D0 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				78430BB621CF2A7900FCA7D0 /* PlayerCell.swift */,
+				78430C0421CF6C1C00FCA7D0 /* NoPlayerCell.swift */,
+				78430C0A21D0764600FCA7D0 /* MatchupCell.swift */,
+				7821341821DB96B500185E59 /* HomeCollectionViewCell.swift */,
+				7821341C21DBB0E700185E59 /* CreateTournamentCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		78430C0C21D07E5300FCA7D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78430C0821D0740800FCA7D0 /* MatchupView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78430C0D21D08D5100FCA7D0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7821341421DB94CC00185E59 /* HomeViewController.swift */,
+				7821341E21DBCEBD00185E59 /* CreateTournamentOptionsView.swift */,
+				780C915821B8F01B0044BD43 /* AddPlayersViewController.swift */,
+				78430C0121CF40EC00FCA7D0 /* AddPlayerViewController.swift */,
+				78430C1121D0971100FCA7D0 /* TournamentViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		78430C0E21D08D7600FCA7D0 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				7828E6BD21CF24F9003394E8 /* Extensions.swift */,
+				7821341A21DBA00800185E59 /* HomeNavigationBar.swift */,
+				78430C1621D0CC6F00FCA7D0 /* File.swift */,
+				78D2965921B9C9F70051E597 /* Player.swift */,
+				7821342021DC958C00185E59 /* TextField.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		78430C1321D0A0AD00FCA7D0 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				78430C1421D0A0ED00FCA7D0 /* MatchupTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +366,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 780C917B21B8F01C0044BD43 /* Build configuration list for PBXNativeTarget "Chess Tourney Matchup" */;
 			buildPhases = (
+				45BACF035F8425BF91B93682 /* [CP] Check Pods Manifest.lock */,
 				780C914F21B8F01B0044BD43 /* Sources */,
 				780C915021B8F01B0044BD43 /* Frameworks */,
 				780C915121B8F01B0044BD43 /* Resources */,
+				AFA99529E7A614748D6619C7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +385,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 780C917E21B8F01C0044BD43 /* Build configuration list for PBXNativeTarget "Chess Tourney MatchupTests" */;
 			buildPhases = (
+				6BD07A545A99C6C150444684 /* [CP] Check Pods Manifest.lock */,
 				780C916321B8F01C0044BD43 /* Sources */,
 				780C916421B8F01C0044BD43 /* Frameworks */,
 				780C916521B8F01C0044BD43 /* Resources */,
@@ -167,6 +404,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 780C918121B8F01C0044BD43 /* Build configuration list for PBXNativeTarget "Chess Tourney MatchupUITests" */;
 			buildPhases = (
+				93DC655225E219E03431DE30 /* [CP] Check Pods Manifest.lock */,
 				780C916E21B8F01C0044BD43 /* Sources */,
 				780C916F21B8F01C0044BD43 /* Frameworks */,
 				780C917021B8F01C0044BD43 /* Resources */,
@@ -232,9 +470,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78430BF221CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf in Resources */,
+				78430BE921CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				78430BEF21CF2BC400FCA7D0 /* RobotoCondensed-Italic.ttf in Resources */,
+				78430BD421CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */,
+				78430BDA21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */,
 				780C916121B8F01B0044BD43 /* LaunchScreen.storyboard in Resources */,
+				78430BEC21CF2BC400FCA7D0 /* RobotoCondensed-Light.ttf in Resources */,
+				78430BFB21CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf in Resources */,
+				78430BD721CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */,
+				78430BFE21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf in Resources */,
 				780C915E21B8F01B0044BD43 /* Assets.xcassets in Resources */,
+				78430BD121CF2BC400FCA7D0 /* Roboto-Light.ttf in Resources */,
+				78430BE321CF2BC400FCA7D0 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				78430BDD21CF2BC400FCA7D0 /* RobotoCondensed-Bold.ttf in Resources */,
+				78430BCB21CF2BC400FCA7D0 /* Roboto-Bold.ttf in Resources */,
+				78430BE021CF2BC400FCA7D0 /* Roboto-Medium.ttf in Resources */,
+				78430BF821CF2BC400FCA7D0 /* Roboto-Black.ttf in Resources */,
+				78430BF521CF2BC400FCA7D0 /* Roboto-LightItalic.ttf in Resources */,
+				78430BCE21CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */,
+				7821342321DCC9FA00185E59 /* GoogleService-Info.plist in Resources */,
 				780C915C21B8F01B0044BD43 /* Main.storyboard in Resources */,
+				78430BE621CF2BC400FCA7D0 /* Roboto-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +499,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78430BE721CF2BC400FCA7D0 /* Roboto-ThinItalic.ttf in Resources */,
+				78430BE421CF2BC400FCA7D0 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				78430BFC21CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf in Resources */,
+				78430BF621CF2BC400FCA7D0 /* Roboto-LightItalic.ttf in Resources */,
+				78430BE121CF2BC400FCA7D0 /* Roboto-Medium.ttf in Resources */,
+				78430BF021CF2BC400FCA7D0 /* RobotoCondensed-Italic.ttf in Resources */,
+				78430BFF21CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf in Resources */,
+				78430BF321CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf in Resources */,
+				78430BD521CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */,
+				78430BDB21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */,
+				78430BCF21CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */,
+				7821342421DCC9FA00185E59 /* GoogleService-Info.plist in Resources */,
+				78430BD821CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */,
+				78430BEA21CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				78430BF921CF2BC400FCA7D0 /* Roboto-Black.ttf in Resources */,
+				78430BDE21CF2BC400FCA7D0 /* RobotoCondensed-Bold.ttf in Resources */,
+				78430BCC21CF2BC400FCA7D0 /* Roboto-Bold.ttf in Resources */,
+				78430BED21CF2BC400FCA7D0 /* RobotoCondensed-Light.ttf in Resources */,
+				78430BD221CF2BC400FCA7D0 /* Roboto-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,18 +525,149 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78430BE821CF2BC400FCA7D0 /* Roboto-ThinItalic.ttf in Resources */,
+				78430BE521CF2BC400FCA7D0 /* RobotoCondensed-LightItalic.ttf in Resources */,
+				78430BFD21CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf in Resources */,
+				78430BF721CF2BC400FCA7D0 /* Roboto-LightItalic.ttf in Resources */,
+				78430BE221CF2BC400FCA7D0 /* Roboto-Medium.ttf in Resources */,
+				78430BF121CF2BC400FCA7D0 /* RobotoCondensed-Italic.ttf in Resources */,
+				78430C0021CF2BC400FCA7D0 /* RobotoCondensed-Regular.ttf in Resources */,
+				78430BF421CF2BC400FCA7D0 /* Roboto-MediumItalic.ttf in Resources */,
+				78430BD621CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */,
+				78430BDC21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */,
+				78430BD021CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */,
+				7821342521DCC9FA00185E59 /* GoogleService-Info.plist in Resources */,
+				78430BD921CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */,
+				78430BEB21CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				78430BFA21CF2BC400FCA7D0 /* Roboto-Black.ttf in Resources */,
+				78430BDF21CF2BC400FCA7D0 /* RobotoCondensed-Bold.ttf in Resources */,
+				78430BCD21CF2BC400FCA7D0 /* Roboto-Bold.ttf in Resources */,
+				78430BEE21CF2BC400FCA7D0 /* RobotoCondensed-Light.ttf in Resources */,
+				78430BD321CF2BC400FCA7D0 /* Roboto-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		45BACF035F8425BF91B93682 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chess Tourney Matchup-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BD07A545A99C6C150444684 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chess Tourney MatchupTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93DC655225E219E03431DE30 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Chess Tourney MatchupUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AFA99529E7A614748D6619C7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Chess Tourney Matchup/Pods-Chess Tourney Matchup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chess Tourney Matchup/Pods-Chess Tourney Matchup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		780C914F21B8F01B0044BD43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				780C915921B8F01B0044BD43 /* ViewController.swift in Sources */,
+				7821341B21DBA00800185E59 /* HomeNavigationBar.swift in Sources */,
+				780C915921B8F01B0044BD43 /* AddPlayersViewController.swift in Sources */,
+				78430C0521CF6C1C00FCA7D0 /* NoPlayerCell.swift in Sources */,
+				78430C1221D0971100FCA7D0 /* TournamentViewController.swift in Sources */,
+				78430C0221CF40EC00FCA7D0 /* AddPlayerViewController.swift in Sources */,
+				78D2965A21B9C9F70051E597 /* Player.swift in Sources */,
+				7821341921DB96B500185E59 /* HomeCollectionViewCell.swift in Sources */,
+				7821341F21DBCEBD00185E59 /* CreateTournamentOptionsView.swift in Sources */,
+				7821341521DB94CC00185E59 /* HomeViewController.swift in Sources */,
+				78430C0B21D0764600FCA7D0 /* MatchupCell.swift in Sources */,
 				780C915721B8F01B0044BD43 /* AppDelegate.swift in Sources */,
+				7821342121DC958C00185E59 /* TextField.swift in Sources */,
+				7821341D21DBB0E700185E59 /* CreateTournamentCollectionViewCell.swift in Sources */,
+				78430C0721D071A500FCA7D0 /* UnTournamentViewController.swift in Sources */,
+				78430C1721D0CC6F00FCA7D0 /* File.swift in Sources */,
+				78430C0921D0740800FCA7D0 /* MatchupView.swift in Sources */,
+				78430C1521D0A0ED00FCA7D0 /* MatchupTableViewCell.swift in Sources */,
+				7828E6BE21CF24F9003394E8 /* Extensions.swift in Sources */,
+				78430BB721CF2A7900FCA7D0 /* PlayerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,9 +831,11 @@
 		};
 		780C917C21B8F01C0044BD43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BABAE563678E155F863D8B64 /* Pods-Chess Tourney Matchup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 493Q35DJV9;
 				INFOPLIST_FILE = "Chess Tourney Matchup/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ben.Chess-Tourney-Matchup";
@@ -438,9 +847,11 @@
 		};
 		780C917D21B8F01C0044BD43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE74AA880C52F0C7C84CF587 /* Pods-Chess Tourney Matchup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 493Q35DJV9;
 				INFOPLIST_FILE = "Chess Tourney Matchup/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "ben.Chess-Tourney-Matchup";
@@ -452,6 +863,7 @@
 		};
 		780C917F21B8F01C0044BD43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9865ACE48966C4BB315973D2 /* Pods-Chess Tourney MatchupTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -468,6 +880,7 @@
 		};
 		780C918021B8F01C0044BD43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4FF3B093ED63F1F44DAAEDE /* Pods-Chess Tourney MatchupTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +897,7 @@
 		};
 		780C918221B8F01C0044BD43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36726B869F053075E6E01BE0 /* Pods-Chess Tourney MatchupUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +913,7 @@
 		};
 		780C918321B8F01C0044BD43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6E4FFA96534644F2927B1A5 /* Pods-Chess Tourney MatchupUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

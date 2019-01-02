@@ -7,3 +7,14 @@
 //
 
 import Foundation
+struct Result {
+    var won: Bool?
+    var lost: Bool?
+    var drew: Bool?
+    
+    init(won: Bool?, lost: Bool?, drew: Bool?) {
+        self.won = won ?? false
+        self.drew = drew ?? false
+        self.lost = lost ?? false
+    }
+}

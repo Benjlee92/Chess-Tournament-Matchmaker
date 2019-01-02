@@ -74,6 +74,7 @@ class AddPlayerViewController: UIViewController {
         tf.attributedPlaceholder = NSAttributedString(string: "NAME", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         tf.textColor = UIColor.TEXTCOLOR()
         tf.font = UIFont(name: "Roboto-Regular", size: 19)
+        tf.isSelected = true
         return tf
     }()
     
@@ -121,6 +122,7 @@ class AddPlayerViewController: UIViewController {
         
         mainView.addSubview(nameTF)
         nameTF.anchor(top: titleLabel.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 60, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 0)
+        nameTF.isSelected = true
         
         mainView.addSubview(topDivider)
         topDivider.anchor(top: nameTF.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 25, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 1)

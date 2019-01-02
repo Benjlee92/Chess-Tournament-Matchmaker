@@ -1,0 +1,6 @@
+framework module Pods_Chess_Tourney_Matchup {
+  umbrella header "Pods-Chess Tourney Matchup-umbrella.h"
+
+  export *
+  module * { export * }
+}

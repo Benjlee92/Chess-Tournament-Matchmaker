@@ -38,6 +38,13 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
+    
+    func setShadow() {
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize.zero
+        layer.shadowRadius = 1.5
+    }
 }
 
 extension UIColor {
@@ -53,4 +60,21 @@ extension UIColor {
     static func GRAY() -> UIColor {
         return UIColor(red: 245/255, green: 246/255, blue: 250/255, alpha: 1)
     }
+    
+    static func BLACKCOLOR() -> UIColor{
+        return UIColor.rgb(red: 31, green: 35, blue: 39)
+    }
+    
+    static func CHESSLIGHTBLACK() -> UIColor{
+        return UIColor.rgb(red: 98, green: 98, blue: 98)
+    }
+    
+    static func SHADOWCOLOR202() -> UIColor{
+        return UIColor.rgb(red: 202, green: 206, blue: 216)
+    }
+    
 }
+
+
+
+

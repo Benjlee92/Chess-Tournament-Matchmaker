@@ -41,11 +41,14 @@ struct MatchPair {
     var player1: Player
     var player2: Player
     var pair: [Player]
-    
-    init(player1: Player?, player2: Player?, players: [Player]?) {
+    var result: Result
+    var matchComplete: Bool
+    init(player1: Player?, player2: Player?, players: [Player]?, result: Result?, matchComplete: Bool?) {
         self.player1 = player1 as? Player ?? Player(name: nil, boardColor: nil, didWin: nil, didLose: nil, didDraw: nil, place: nil, totalWins: nil, totalLosses: nil, totalScore: nil, scores: nil, previousColor: nil)
         self.player2 = player2 ?? Player(name: nil, boardColor: nil, didWin: nil, didLose: nil, didDraw: nil, place: nil, totalWins: nil, totalLosses: nil, totalScore: nil, scores: nil, previousColor: nil)
         self.pair = [self.player1, self.player2]
+        self.result = result ?? Result(won: nil, lost: nil, drew: nil)
+        self.matchComplete = matchComplete ?? false
     }
 }
 

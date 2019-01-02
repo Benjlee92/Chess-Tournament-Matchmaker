@@ -8,23 +8,55 @@
 
 import UIKit
 
-class matchupTableViewCell: UITableViewCell {
+class MatchupTableViewCell: UITableViewCell {
     
-    var matchup: MatchPair? {
+    var result: MatchPair? {
         didSet {
-            matchupView.matchup = self.matchup
+            showResultOverlay(matchup: result!)
+        }
+    }
+    
+    var matchUp: MatchPair? {
+        didSet {
+            matchupView.matchup = matchUp
         }
     }
     
     let matchupView: MatchupView = {
-        
         let mv = MatchupView()
         return mv
     }()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    let border: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.GRAY()
+        return v
+    }()
+    
+    let resultOverlay: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.rgb(red: 101, green: 154, blue: 244)
+        v.alpha = 0.92
+        v.isHidden = true
+        return v
+    }()
+    
+    let resultLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = ""
+        lbl.font = UIFont(name: "Roboto-Regular", size: 35)
+        lbl.textAlignment = .center
+        lbl.textColor = UIColor.white
+        return lbl
+    }()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: "CellId")
         setupUI()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     fileprivate func setupUI() {
@@ -33,17 +65,34 @@ class matchupTableViewCell: UITableViewCell {
         layer.borderWidth = 0.7
         
         addSubview(matchupView)
-        matchupView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 45, paddingLeft: 20, paddingBottom: -35, paddingRight: 20, width: 0, height: 0)
+        matchupView.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 45, paddingLeft: 30, paddingBottom: -35, paddingRight: 30, width: 0, height: 0)
+        
+        addSubview(border)
+        border.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 1)
+        
+        addSubview(resultOverlay)
+        resultOverlay.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        resultOverlay.addSubview(resultLabel)
+        resultLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func showResultOverlay(matchup: MatchPair) {
+        let player1 = matchup.player1
+        let player2 = matchup.player2
+        
+        if matchup.player1.didWin {
+            resultLabel.text = "\(player1.name) Won the round!"
+        } else if matchup.player2.didWin {
+            resultLabel.text = "\(player2.name) Won the round!"
+        } else if player1.didDraw && player2.didDraw {
+            resultLabel.text = "\(player1.name) and \(player2.name) both drew the round!"
+        }
+        
+        resultOverlay.isHidden = false
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func hideOverlay() {
+        resultOverlay.isHidden = true
     }
 
 }

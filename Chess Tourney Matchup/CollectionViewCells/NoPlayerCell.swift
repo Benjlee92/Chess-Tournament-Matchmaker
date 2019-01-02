@@ -12,9 +12,9 @@ class NoPlayerCell: UICollectionViewCell {
     
     let noPlayerLabel: UILabel = {
         let lbl = UILabel()
-        lbl.font = UIFont(name: "Roboto-Regular", size: 15)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 19)
         lbl.textColor = UIColor.lightGray
-        lbl.text = "No players are in the tournament."
+        lbl.text = "No players are in the tournament. Please add players."
         return lbl
     }()
     
@@ -22,7 +22,7 @@ class NoPlayerCell: UICollectionViewCell {
         super.init(frame: frame)
         
         addSubview(noPlayerLabel)
-        noPlayerLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        noPlayerLabel.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 40, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
