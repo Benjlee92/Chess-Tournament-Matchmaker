@@ -93,7 +93,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         //beginFirstRound()
         //setScore()
         //beginNextRound()
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -174,7 +173,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         addPlayerViewController.delegate = self
         addPlayerViewController.modalPresentationStyle = .overCurrentContext
         present(addPlayerViewController, animated: true, completion: nil)
-
     }
     
     @objc func startTournament() {
@@ -186,7 +184,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func toTournamentViewController() {
         let tournamentVC = TournamentViewController()
-        tournamentVC.matchPairs = allMatchPairs
+        tournamentVC.matchPairs = matchPairs
+
+        tournamentVC.numberOfMatchPairs = matchPairs.count
         present(tournamentVC, animated: true) {
             self.allMatchPairs.removeAll()
         }
@@ -197,93 +197,55 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.reloadData()
     }
     
-    func getPlayers() {
-        var playerNames = ["Alex", "Ben", "Cam", "Dan", "Ed", "Fred"]
-        for name in playerNames {
-            var player = Player(name: nil, boardColor: nil, didWin: nil, didLose: nil, didDraw: nil, place: nil, totalWins: nil, totalLosses: nil, totalScore: nil, scores: nil, previousColor: nil)
-            player.name = name
-            playersList.append(player)
-        }
-    }
+//    func getPlayers() {
+//        var playerNames = ["Alex", "Ben", "Cam", "Dan", "Ed", "Fred"]
+//        for name in playerNames {
+//            var player = Player(name: nil, boardColor: nil, didWin: nil, didLose: nil, didDraw: nil, place: nil, totalWins: nil, totalLosses: nil, totalScore: nil, scores: nil, previousColor: nil)
+//            player.name = name
+//            playersList.append(player)
+//        }
+//    }
+
     
     func setPairs(playerList: [Player]) {
-        matchPairs.removeAll()
 
         if currentRound == 0 {
             if playerList.count % 2 == 0 { // check if we have even number of players
-                
+
                 // Here we need to randomly set two people together
-                var playersListHolder = playerList
-                
+                var playersListHolder: [Player] = []
+                for player in playersList {
+                    playersListHolder.append(player)
+                }
+
                 let numberOfMatchPairs = playersListHolder.count / 2
-                var matchPair = MatchPair(player1: nil, player2: nil, players: nil)
+                var mPair = MatchPair(player1: nil, player2: nil, players: nil, result: nil, matchComplete: nil)
                 for index in 1...numberOfMatchPairs { // looping through the number of pairs
-                    
+
                     var pair : [Player] = []
-                    
+
                     for index in 1...2 { // loop through twice to pick 2 people
                         let randomIndex = Int(arc4random_uniform(UInt32(playersListHolder.count))) // getting a random index
                         let player = playersListHolder[randomIndex]
                         pair.append(player)
                         playersListHolder.remove(at: randomIndex)
                     }
-                    matchPair.player1 = pair[0]
-                    matchPair.player2 = pair[1]
-                    
-                    matchPair.player1.boardColor = "White"
-                    matchPair.player2.boardColor = "Black"
-                    matchPairs.append(matchPair)
-                    allMatchPairs.append(matchPair)
+
+                    mPair.player1 = pair[0]
+                    mPair.player2 = pair[1]
+
+                    mPair.player1.boardColor = "White"
+                    mPair.player2.boardColor = "Black"
+                    matchPairs.append(mPair)
                     pair.removeAll()
                 }
+
             } else {
                 print("ODD NUMBER OF PLAYERS")
             }
-            
-        } else if currentRound > 0 {
-            if playerList.count % 2 == 0 { // check if we have even number of players
-                
-                // Here we need to randomly set two people together
-                var playersListHolder = playerList
-                
-                let numberOfMatchPairs = playersListHolder.count / 2
-                var matchPair = MatchPair(player1: nil, player2: nil, players: nil)
-                for index in 1...numberOfMatchPairs { // looping through the number of pairs
-                    
-                    var pair : [Player] = []
-                    
-                    for index in 1...2 { // loop through twice to pick 2 people
-                        let randomIndex = Int(arc4random_uniform(UInt32(playersListHolder.count))) // getting a random index
-                        let player = playersListHolder[randomIndex]
-                        pair.append(player)
-                        playersListHolder.remove(at: randomIndex)
-                    }
-                    matchPair.player1 = pair[0]
-                    matchPair.player2 = pair[1]
-                    
-                    var player1PreviousBoardColor = matchPair.player1.boardColor
-                    var player2PreviousBoardColor = matchPair.player2.boardColor
 
-                    
-                    if player1PreviousBoardColor == "White" && player2PreviousBoardColor == "Black" {
-                        matchPair.player1.boardColor = "Black"
-                        matchPair.player2.boardColor = "White"
+        } else {
 
-                    } else if player1PreviousBoardColor == "Black" && player2PreviousBoardColor == "White" {
-                        matchPair.player1.boardColor = "White"
-                        matchPair.player2.boardColor = "Black"
-                    } else {
-                        matchPair.player1.boardColor = "White"
-                        matchPair.player2.boardColor = "Black"
-
-                    }
-                    
-                    matchPairs.append(matchPair)
-                    allMatchPairs.append(matchPair)
-                    pair.removeAll()
-                }
-            } else {
-            }
         }
     }
     
@@ -308,8 +270,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func listMatchUps() {
-        if currentRound == 0 { // checking to see if this should be the first round
-            currentRound = 1
             print("-------------------- Round 1 ----------------------\n")
             
             for matchPair in matchPairs {
@@ -320,15 +280,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             }
             print("\n")
             
-        } else {
-            for matchPair in matchPairs {
-                var player1 = matchPair.player1
-                var player2 = matchPair.player2
-                
-                print(player1.boardColor + ": " + player1.name, "(\(String(player1.totalWins))W \(String(player1.totalLosses))L)" + "   VS   " + player2.boardColor + ": " + player2.name, "(\(String(player2.totalWins))W \(String(player2.totalLosses))L)")
-            }
-            
-        }
+        
     }
     
     
@@ -338,61 +290,61 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         listMatchUps()
     }
     
-    func setScore() {
-
-        for matchPair in matchPairs {
-            // temporary setting of the winners and losers NEED TO CHANGE
-            var player1 = matchPair.player1
-            var player2 = matchPair.player2
-
-            player1.didWin = true
-            player1.totalWins += 1
-            
-            player2.didWin = false
-            player2.totalLosses += 1
-            
-            results.append(player1)
-            results.append(player2)
-        }
-
-        // check if this is right after the first round
-        // get the wins and losses
-    }
-    
-    func beginNextRound() {
-        // check who won last round
-        print("\n")
-        print("-------------------- Round " + String(currentRound + 1) + " --------------------\n")
-
-        
-        var playersWithSameResults: [Player] = []
-        
-        //print(currentRound)
-        for index in 0...currentRound {
-            for player in results {
-                if player.totalWins == index {
-                    //print("GGGGGGG", player.name, player.totalWins, "\n")
-                    playersWithSameResults.append(player)
-                }
-            }
-            
-            //print("START: ", playersWithSameResults, "\n")
-            
-            if (playersWithSameResults.count % 2 != 0) {
-                var oddPlayer = playersWithSameResults[0]
-                playersWithSameResults.remove(at: 0)
-                setPairs(playerList: playersWithSameResults)
-                listMatchUps()
-                playersWithSameResults.removeAll()
-                playersWithSameResults.append(oddPlayer)
-            } else {
-                setPairs(playerList: playersWithSameResults)
-                listMatchUps()
-            }
-            
-        }
-        currentRound += 1
-    }
+//    func setScore() {
+//
+//        for matchPair in matchPairs {
+//            // temporary setting of the winners and losers NEED TO CHANGE
+//            var player1 = matchPair.player1
+//            var player2 = matchPair.player2
+//
+//            player1.didWin = true
+//            player1.totalWins += 1
+//
+//            player2.didWin = false
+//            player2.totalLosses += 1
+//
+//            results.append(player1)
+//            results.append(player2)
+//        }
+//
+//        // check if this is right after the first round
+//        // get the wins and losses
+//    }
+//
+//    func beginNextRound() {
+//        // check who won last round
+//        print("\n")
+//        print("-------------------- Round " + String(currentRound + 1) + " --------------------\n")
+//
+//
+//        var playersWithSameResults: [Player] = []
+//
+//        //print(currentRound)
+//        for index in 0...currentRound {
+//            for player in results {
+//                if player.totalWins == index {
+//                    //print("GGGGGGG", player.name, player.totalWins, "\n")
+//                    playersWithSameResults.append(player)
+//                }
+//            }
+//
+//            //print("START: ", playersWithSameResults, "\n")
+//
+//            if (playersWithSameResults.count % 2 != 0) {
+//                var oddPlayer = playersWithSameResults[0]
+//                playersWithSameResults.remove(at: 0)
+//                setPairs(playerList: playersWithSameResults)
+//                listMatchUps()
+//                playersWithSameResults.removeAll()
+//                playersWithSameResults.append(oddPlayer)
+//            } else {
+//                setPairs(playerList: playersWithSameResults)
+//                listMatchUps()
+//            }
+//
+//        }
+//        currentRound += 1
+//    }
 
 }
 
