@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AddPlayerDelegate {
+class AddPlayersViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, AddPlayerDelegate, UITextFieldDelegate {
     
+    var numberOfPlayers = 0
+    var numberOfRounds = 0
+
     let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Add Players"
-        lbl.font = UIFont(name: "Roboto-Regular", size: 50)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 22)
         lbl.textAlignment = .center
         lbl.textColor = UIColor.TEXTCOLOR()
         return lbl
@@ -21,8 +24,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     let descriptionLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "Add players to enter in the tournament"
-        lbl.font = UIFont(name: "Roboto-Regular", size: 19)
+        lbl.text = "Add players to enter in the tournament."
+        lbl.font = UIFont(name: "Roboto-Regular", size: 14)
         lbl.textAlignment = .center
         lbl.textColor = UIColor.TEXTCOLOR()
         return lbl
@@ -33,20 +36,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.white
+        cv.backgroundColor = UIColor.clear
         cv.dataSource = self
         cv.delegate = self
-        cv.isPagingEnabled = true
+        cv.isPagingEnabled = false
        // cv.layer.shadowRadius = 40
         return cv
     }()
     
     let addPlayerButton: UIButton = {
-       let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "AddButton").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.setTitle("  Add Player", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 19)
-        button.setTitleColor(UIColor.TEXTCOLOR(), for: .normal)
+        let button = UIButton(type: .system)
+        let font = UIFont(name: "Roboto-Medium", size: 15)
+        let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: UIColor.white]
+        let attributedString = NSAttributedString(string: "AddPlayer", attributes: attributes)
+        button.setAttributedTitle(attributedString, for: .normal)
+        button.layer.cornerRadius = 5
+        button.backgroundColor = UIColor.rgb(red: 45, green: 193, blue: 222)
         //button.imageEdgeInsets
         button.addTarget(self, action: #selector(addPlayer), for: .touchUpInside)
         return button
@@ -54,16 +59,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     let startTournamentButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "startTournament").withRenderingMode(.alwaysOriginal), for: .normal)
-        button.setTitle("  Start Tournament", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 19)
-        button.setTitleColor(UIColor.TEXTCOLOR(), for: .normal)
-        //button.imageEdgeInsets
+        let font = UIFont(name: "Roboto-Medium", size: 15)
+        let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: UIColor.white]
+        let attributedString = NSAttributedString(string: "Start Tournament", attributes: attributes)
+        button.setAttributedTitle(attributedString, for: .normal)
+        button.backgroundColor = UIColor.rgb(red: 41, green:203 , blue: 152)
+        button.layer.cornerRadius = 5
         button.addTarget(self, action: #selector(startTournament), for: .touchUpInside)
         return button
     }()
-    
-    
+    var currentTextFieldName = ""
+    var playerNames: [String] = []
     var playersList: [Player] = []
     var playersListWithSameWins: [Player] = []
     var matchPairs: [MatchPair] = []
@@ -73,7 +79,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     var roundLosers: [Player] = []
     var playersWithSameWins: [Player] = []
     
-    
     var currentRound = 0
     
     let white = "White"
@@ -81,22 +86,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     let colors = ["White", "Black"]
     let cellId = "cellId"
     let noPlayerCellId = "noPlayerCellId"
+    let addPlayerCellId = "addPlayerCellId"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
-        
-        //getPlayers()
-        //setPairs(playerList: playersList)
-        //setPairs(players)
-        //beginFirstRound()
-        //setScore()
-        //beginNextRound()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-
+    override func viewDidLayoutSubviews() {
+        descriptionLabel.anchor(top: navigationController?.navigationBar.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 30, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 20)
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,23 +103,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func setupUI() {
+        navigationController?.navigationBar.topItem?.title = "Cancel"
+        navigationItem.title = "Add Players"
         view.backgroundColor = UIColor.GRAY()
         
-        view.addSubview(titleLabel)
-        titleLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 100, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-        
         view.addSubview(descriptionLabel)
-        descriptionLabel.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        descriptionLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 20)
         
-        view.addSubview(addPlayerButton)
-        addPlayerButton.anchor(top: descriptionLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 70, paddingBottom: 0, paddingRight: 0, width: 150, height: 50)
+        let buttonStackView = UIStackView(arrangedSubviews: [addPlayerButton, startTournamentButton])
+        addPlayerButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        startTournamentButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        buttonStackView.axis = .horizontal
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.spacing = 50
         
-        view.addSubview(startTournamentButton)
-        startTournamentButton.anchor(top: descriptionLabel.bottomAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 50, paddingLeft: 0, paddingBottom: 0, paddingRight: 70, width: 220, height: 50)
+        view.addSubview(buttonStackView)
+        buttonStackView.anchor(top: descriptionLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 25, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 0)
         
         view.addSubview(collectionView)
-        collectionView.anchor(top: addPlayerButton.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 50, paddingLeft: 70, paddingBottom: -70, paddingRight: 70, width: 0, height: 0)
-        
+        collectionView.anchor(top: addPlayerButton.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         registerCells()
     }
@@ -129,18 +129,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     fileprivate func registerCells() {
         collectionView.register(PlayerCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(NoPlayerCell.self, forCellWithReuseIdentifier: noPlayerCellId)
+        collectionView.register(AddPlayerCollectionViewCell.self, forCellWithReuseIdentifier: addPlayerCellId)
 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if playersList.count == 0 {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: noPlayerCellId, for: indexPath) as! NoPlayerCell
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PlayerCell
-            cell.player = playersList[indexPath.item]
-            return cell
-        }
+
+        let addPlayerCell = collectionView.dequeueReusableCell(withReuseIdentifier: addPlayerCellId, for: indexPath) as! AddPlayerCollectionViewCell
+        addPlayerCell.number = String(indexPath.item + 1)
+        addPlayerCell.nameTextField.delegate = self
+        return addPlayerCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -148,16 +146,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if playersList.count == 0 {
-            return 1
-        } else {
-            return playersList.count
 
-        }
+        return numberOfPlayers
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 70)
+        return CGSize(width: collectionView.frame.width, height: 100)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -166,6 +160,65 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if (textField.text != "") || (textField.text != "Add Player Name") {
+            currentTextFieldName = textField.text!
+        }
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("ended")
+        if textField.text != "" || textField.text != "Add Player Name" {
+            let playerName = textField.text ?? ""
+            if playerNames.contains(textField.text!) {
+                print("name already in use ")
+            } else {
+                if let index = playerNames.index(of: currentTextFieldName) {
+                    playerNames[index] = playerName
+                    print("hot here")
+                } else {
+                    playerNames.append(playerName)
+                }
+            }
+        } else if textField.text == "" {
+        }
+        print(playerNames)
+        print("playerNames: \(playerNames)")
+        print("player Count: \(playerNames.count)")
+
+        return true
+    }
+    
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        print("ended")
+//        if textField.text != "" || textField.text != "Add Player Name" {
+//            guard let playerName = textField.text else {return}
+//
+//            if playerNames.contains(textField.text!) {
+//                print("name already in use ")
+//            } else {
+//                if let index = playerNames.index(of: currentTextFieldName) {
+//                    playerNames[index] = playerName
+//                    print("hot here")
+//                } else {
+//                    playerNames.append(playerName)
+//                }
+//            }
+//        } else if textField.text == "" {
+//        }
+//        print(playerNames)
+//
+//    }
+    
+    
+    func setPlayerNames() {
+        for name in playerNames {
+            let player = Player(name: name, boardColor: nil, didWin: false, didLose: false, didDraw: false, place: nil, totalWins: 0, totalLosses: 0, totalScore: 0, scores: nil, previousColor: nil)
+            playersList.append(player)
+        }
+        print("PlayerList: \(playersList)")
+
     }
     
     @objc func addPlayer() {
@@ -176,10 +229,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     @objc func startTournament() {
+        setPlayerNames()
         setPairs(playerList: playersList)
         setColors()
         listMatchUps()
         toTournamentViewController()
+    }
+    
+    func checkIfAllNamesGiven() {
+        
     }
     
     func toTournamentViewController() {
@@ -187,9 +245,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         tournamentVC.matchPairs = matchPairs
 
         tournamentVC.numberOfMatchPairs = matchPairs.count
-        present(tournamentVC, animated: true) {
-            self.allMatchPairs.removeAll()
-        }
+        navigationController?.pushViewController(tournamentVC, animated: true)
+        //tournamentVC.numberOfRounds = numberOfROunds()
+        //self.allMatchPairs.removeAll()
+//        present(tournamentVC, animated: true) {
+//            self.allMatchPairs.removeAll()
+//        }
     }
     
     func addPlayerToTournament(player: Player) {
@@ -197,18 +258,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.reloadData()
     }
     
-//    func getPlayers() {
-//        var playerNames = ["Alex", "Ben", "Cam", "Dan", "Ed", "Fred"]
-//        for name in playerNames {
-//            var player = Player(name: nil, boardColor: nil, didWin: nil, didLose: nil, didDraw: nil, place: nil, totalWins: nil, totalLosses: nil, totalScore: nil, scores: nil, previousColor: nil)
-//            player.name = name
-//            playersList.append(player)
-//        }
-//    }
-
-    
     func setPairs(playerList: [Player]) {
-
         if currentRound == 0 {
             if playerList.count % 2 == 0 { // check if we have even number of players
 
@@ -239,14 +289,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                     matchPairs.append(mPair)
                     pair.removeAll()
                 }
-
             } else {
                 print("ODD NUMBER OF PLAYERS")
             }
-
         } else {
-
         }
+        //print("MatchPairs: \(matchPairs)")
+        //print("MatchPair count:  \(matchPairs.count)")
     }
     
     func setColors() { // setting the colors for the players
@@ -279,73 +328,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 print(player1.boardColor + ": " + player1.name, "(\(String(player1.totalWins))W \(String(player1.totalLosses))L)" + "   VS   " + player2.boardColor + ": " + player2.name, "(\(String(player2.totalWins))W \(String(player2.totalLosses))L)")
             }
             print("\n")
-            
-        
     }
     
-    
     func beginFirstRound() {
-        //currentRound += 1
         setColors()
         listMatchUps()
     }
-    
-//    func setScore() {
-//
-//        for matchPair in matchPairs {
-//            // temporary setting of the winners and losers NEED TO CHANGE
-//            var player1 = matchPair.player1
-//            var player2 = matchPair.player2
-//
-//            player1.didWin = true
-//            player1.totalWins += 1
-//
-//            player2.didWin = false
-//            player2.totalLosses += 1
-//
-//            results.append(player1)
-//            results.append(player2)
-//        }
-//
-//        // check if this is right after the first round
-//        // get the wins and losses
-//    }
-//
-//    func beginNextRound() {
-//        // check who won last round
-//        print("\n")
-//        print("-------------------- Round " + String(currentRound + 1) + " --------------------\n")
-//
-//
-//        var playersWithSameResults: [Player] = []
-//
-//        //print(currentRound)
-//        for index in 0...currentRound {
-//            for player in results {
-//                if player.totalWins == index {
-//                    //print("GGGGGGG", player.name, player.totalWins, "\n")
-//                    playersWithSameResults.append(player)
-//                }
-//            }
-//
-//            //print("START: ", playersWithSameResults, "\n")
-//
-//            if (playersWithSameResults.count % 2 != 0) {
-//                var oddPlayer = playersWithSameResults[0]
-//                playersWithSameResults.remove(at: 0)
-//                setPairs(playerList: playersWithSameResults)
-//                listMatchUps()
-//                playersWithSameResults.removeAll()
-//                playersWithSameResults.append(oddPlayer)
-//            } else {
-//                setPairs(playerList: playersWithSameResults)
-//                listMatchUps()
-//            }
-//
-//        }
-//        currentRound += 1
-//    }
-
 }
 
 

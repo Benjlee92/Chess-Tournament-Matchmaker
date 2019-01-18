@@ -135,7 +135,6 @@ class AddPlayerViewController: UIViewController {
         
         mainView.addSubview(checkButton)
         checkButton.anchor(top: nil, left: mainView.leftAnchor, bottom: mainView.bottomAnchor, right: mainView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: -100, paddingRight: 0, width: 120, height: 50)
-        
     }
     
     @objc func cancel() {

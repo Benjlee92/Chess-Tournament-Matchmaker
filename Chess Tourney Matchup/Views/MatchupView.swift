@@ -33,7 +33,7 @@ class MatchupView: UIView {
         let name = player.name
         let wins = player.totalWins
         let losses = player.totalLosses
-        let statsString = "(" + String(wins) + "W - " + String(losses) + "L)"
+        let statsString = "\n(" + String(wins) + "W - " + String(losses) + "L)"
         let attributedText = NSMutableAttributedString(string: name + "  ", attributes: [NSAttributedStringKey.font : UIFont(name: "Roboto-Regular", size: 20)])
         
         attributedText.append(NSAttributedString(string: statsString , attributes: [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15), NSAttributedStringKey.foregroundColor: UIColor.gray]))
@@ -58,41 +58,48 @@ class MatchupView: UIView {
         let lbl = UILabel()
         lbl.text = "White"
         lbl.textAlignment = .center
-        lbl.font = UIFont(name: "Roboto-Regular", size: 15)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 12)
         lbl.textColor = UIColor.gray
+        lbl.adjustsFontSizeToFitWidth = true
         return lbl
     }()
     
     let blackColorLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Black"
-        lbl.font = UIFont(name: "Roboto-Regular", size: 15)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 12)
         lbl.textAlignment = .center
         lbl.textColor = UIColor.gray
+        lbl.adjustsFontSizeToFitWidth = true
         return lbl
     }()
     
     let player1NameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Player1"
-        lbl.font = UIFont(name: "Roboto-Regular", size: 22)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 13)
         lbl.textColor = UIColor.TEXTCOLOR()
+        lbl.adjustsFontSizeToFitWidth = true
+        lbl.numberOfLines = 0
+
         return lbl
     }()
     
     let player2NameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Player2"
-        lbl.font = UIFont(name: "Roboto-Regular", size: 22)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 13)
         lbl.textAlignment = .right
         lbl.textColor = UIColor.TEXTCOLOR()
+        lbl.adjustsFontSizeToFitWidth = true
+        lbl.numberOfLines = 0
         return lbl
     }()
     
     let vsLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "VS"
-        lbl.font = UIFont(name: "Roboto-Regular", size: 22)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 15)
         lbl.textAlignment = .center
         lbl.textColor = UIColor.gray
         return lbl

@@ -11,7 +11,6 @@
 		52D154AA67AED2D15AF99922 /* Pods_Chess_Tourney_Matchup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB50346B9AC23894AC9890C /* Pods_Chess_Tourney_Matchup.framework */; };
 		780C915721B8F01B0044BD43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C915621B8F01B0044BD43 /* AppDelegate.swift */; };
 		780C915921B8F01B0044BD43 /* AddPlayersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C915821B8F01B0044BD43 /* AddPlayersViewController.swift */; };
-		780C915C21B8F01B0044BD43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 780C915A21B8F01B0044BD43 /* Main.storyboard */; };
 		780C915E21B8F01B0044BD43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 780C915D21B8F01B0044BD43 /* Assets.xcassets */; };
 		780C916121B8F01B0044BD43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 780C915F21B8F01B0044BD43 /* LaunchScreen.storyboard */; };
 		780C916C21B8F01C0044BD43 /* Chess_Tourney_MatchupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780C916B21B8F01C0044BD43 /* Chess_Tourney_MatchupTests.swift */; };
@@ -25,6 +24,15 @@
 		7821342321DCC9FA00185E59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7821342221DCC9F900185E59 /* GoogleService-Info.plist */; };
 		7821342421DCC9FA00185E59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7821342221DCC9F900185E59 /* GoogleService-Info.plist */; };
 		7821342521DCC9FA00185E59 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7821342221DCC9F900185E59 /* GoogleService-Info.plist */; };
+		7821342721DCE2A400185E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7821342621DCE2A400185E59 /* Main.storyboard */; };
+		7821342821DCE2A400185E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7821342621DCE2A400185E59 /* Main.storyboard */; };
+		7821342921DCE2A400185E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7821342621DCE2A400185E59 /* Main.storyboard */; };
+		7821342B21DF242F00185E59 /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821342A21DF242F00185E59 /* AddPlayerCollectionViewCell.swift */; };
+		7821342C21DF242F00185E59 /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821342A21DF242F00185E59 /* AddPlayerCollectionViewCell.swift */; };
+		7821342D21DF242F00185E59 /* AddPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821342A21DF242F00185E59 /* AddPlayerCollectionViewCell.swift */; };
+		7821342F21DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821342E21DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift */; };
+		7821343021DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821342E21DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift */; };
+		7821343121DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7821342E21DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift */; };
 		7828E6BE21CF24F9003394E8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6BD21CF24F9003394E8 /* Extensions.swift */; };
 		78430BB721CF2A7900FCA7D0 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78430BB621CF2A7900FCA7D0 /* PlayerCell.swift */; };
 		78430BCB21CF2BC400FCA7D0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78430BB921CF2BC200FCA7D0 /* Roboto-Bold.ttf */; };
@@ -116,7 +124,6 @@
 		780C915321B8F01B0044BD43 /* Chess Tourney Matchup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chess Tourney Matchup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		780C915621B8F01B0044BD43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		780C915821B8F01B0044BD43 /* AddPlayersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayersViewController.swift; sourceTree = "<group>"; };
-		780C915B21B8F01B0044BD43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		780C915D21B8F01B0044BD43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		780C916021B8F01B0044BD43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		780C916221B8F01B0044BD43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +140,9 @@
 		7821341E21DBCEBD00185E59 /* CreateTournamentOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTournamentOptionsView.swift; sourceTree = "<group>"; };
 		7821342021DC958C00185E59 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		7821342221DCC9F900185E59 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7821342621DCE2A400185E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7821342A21DF242F00185E59 /* AddPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
+		7821342E21DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBracketTournamentCollectionViewCell.swift; sourceTree = "<group>"; };
 		7828E6BD21CF24F9003394E8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		78430BB621CF2A7900FCA7D0 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		78430BB921CF2BC200FCA7D0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
@@ -255,7 +265,6 @@
 				78430C1321D0A0AD00FCA7D0 /* TableViewCells */,
 				78430C0321CF6BEE00FCA7D0 /* CollectionViewCells */,
 				780C915D21B8F01B0044BD43 /* Assets.xcassets */,
-				780C915A21B8F01B0044BD43 /* Main.storyboard */,
 				780C915F21B8F01B0044BD43 /* LaunchScreen.storyboard */,
 				780C916221B8F01B0044BD43 /* Info.plist */,
 				7821342221DCC9F900185E59 /* GoogleService-Info.plist */,
@@ -310,11 +319,14 @@
 		78430C0321CF6BEE00FCA7D0 /* CollectionViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				7821342621DCE2A400185E59 /* Main.storyboard */,
 				78430BB621CF2A7900FCA7D0 /* PlayerCell.swift */,
 				78430C0421CF6C1C00FCA7D0 /* NoPlayerCell.swift */,
 				78430C0A21D0764600FCA7D0 /* MatchupCell.swift */,
 				7821341821DB96B500185E59 /* HomeCollectionViewCell.swift */,
 				7821341C21DBB0E700185E59 /* CreateTournamentCollectionViewCell.swift */,
+				7821342E21DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift */,
+				7821342A21DF242F00185E59 /* AddPlayerCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -475,6 +487,7 @@
 				78430BEF21CF2BC400FCA7D0 /* RobotoCondensed-Italic.ttf in Resources */,
 				78430BD421CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */,
 				78430BDA21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */,
+				7821342721DCE2A400185E59 /* Main.storyboard in Resources */,
 				780C916121B8F01B0044BD43 /* LaunchScreen.storyboard in Resources */,
 				78430BEC21CF2BC400FCA7D0 /* RobotoCondensed-Light.ttf in Resources */,
 				78430BFB21CF2BC400FCA7D0 /* Roboto-BlackItalic.ttf in Resources */,
@@ -490,7 +503,6 @@
 				78430BF521CF2BC400FCA7D0 /* Roboto-LightItalic.ttf in Resources */,
 				78430BCE21CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */,
 				7821342321DCC9FA00185E59 /* GoogleService-Info.plist in Resources */,
-				780C915C21B8F01B0044BD43 /* Main.storyboard in Resources */,
 				78430BE621CF2BC400FCA7D0 /* Roboto-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +522,7 @@
 				78430BD521CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */,
 				78430BDB21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */,
 				78430BCF21CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */,
+				7821342821DCE2A400185E59 /* Main.storyboard in Resources */,
 				7821342421DCC9FA00185E59 /* GoogleService-Info.plist in Resources */,
 				78430BD821CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */,
 				78430BEA21CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */,
@@ -536,6 +549,7 @@
 				78430BD621CF2BC400FCA7D0 /* Roboto-Thin.ttf in Resources */,
 				78430BDC21CF2BC400FCA7D0 /* Roboto-Italic.ttf in Resources */,
 				78430BD021CF2BC400FCA7D0 /* Roboto-BoldItalic.ttf in Resources */,
+				7821342921DCE2A400185E59 /* Main.storyboard in Resources */,
 				7821342521DCC9FA00185E59 /* GoogleService-Info.plist in Resources */,
 				78430BD921CF2BC400FCA7D0 /* Roboto-Regular.ttf in Resources */,
 				78430BEB21CF2BC400FCA7D0 /* RobotoCondensed-BoldItalic.ttf in Resources */,
@@ -555,15 +569,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Chess Tourney Matchup-checkManifestLockResult.txt",
 			);
@@ -577,15 +587,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Chess Tourney MatchupTests-checkManifestLockResult.txt",
 			);
@@ -599,15 +605,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Chess Tourney MatchupUITests-checkManifestLockResult.txt",
 			);
@@ -621,8 +623,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Chess Tourney Matchup/Pods-Chess Tourney Matchup-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -630,8 +630,6 @@
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -656,11 +654,13 @@
 				78430C0221CF40EC00FCA7D0 /* AddPlayerViewController.swift in Sources */,
 				78D2965A21B9C9F70051E597 /* Player.swift in Sources */,
 				7821341921DB96B500185E59 /* HomeCollectionViewCell.swift in Sources */,
+				7821342B21DF242F00185E59 /* AddPlayerCollectionViewCell.swift in Sources */,
 				7821341F21DBCEBD00185E59 /* CreateTournamentOptionsView.swift in Sources */,
 				7821341521DB94CC00185E59 /* HomeViewController.swift in Sources */,
 				78430C0B21D0764600FCA7D0 /* MatchupCell.swift in Sources */,
 				780C915721B8F01B0044BD43 /* AppDelegate.swift in Sources */,
 				7821342121DC958C00185E59 /* TextField.swift in Sources */,
+				7821342F21DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift in Sources */,
 				7821341D21DBB0E700185E59 /* CreateTournamentCollectionViewCell.swift in Sources */,
 				78430C0721D071A500FCA7D0 /* UnTournamentViewController.swift in Sources */,
 				78430C1721D0CC6F00FCA7D0 /* File.swift in Sources */,
@@ -676,6 +676,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				780C916C21B8F01C0044BD43 /* Chess_Tourney_MatchupTests.swift in Sources */,
+				7821343021DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift in Sources */,
+				7821342C21DF242F00185E59 /* AddPlayerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +686,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				780C917721B8F01C0044BD43 /* Chess_Tourney_MatchupUITests.swift in Sources */,
+				7821343121DF3B8F00185E59 /* CreateBracketTournamentCollectionViewCell.swift in Sources */,
+				7821342D21DF242F00185E59 /* AddPlayerCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -703,14 +707,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		780C915A21B8F01B0044BD43 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				780C915B21B8F01B0044BD43 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		780C915F21B8F01B0044BD43 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

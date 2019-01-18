@@ -21,7 +21,6 @@ struct Player {
     var scores: [Double]
     var previousColor: String
     
-    
     init(name: String?, boardColor: String?, didWin: Bool?, didLose: Bool?, didDraw: Bool?, place: Int?, totalWins: Int?, totalLosses: Int?, totalScore: Double?, scores: [Double]?, previousColor: String?) {
         self.name = name as? String ?? ""
         self.boardColor = boardColor as? String ?? "none"

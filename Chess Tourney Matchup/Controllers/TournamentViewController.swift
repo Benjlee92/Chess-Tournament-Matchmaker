@@ -12,6 +12,7 @@ import UIKit
 class TournamentViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var currentRound = 1
+    var numberOfRounds = 0
     
     var playersList: [Player] = []
     var playersListWithSameWins: [Player] = []
@@ -46,7 +47,7 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
     let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Tournament"
-        lbl.font = UIFont(name: "Roboto-Regular", size: 45)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 22)
         lbl.textAlignment = .left
         lbl.textColor = UIColor.TEXTCOLOR()
         return lbl
@@ -75,8 +76,8 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
         let button = UIButton(type: .system)
         button.setTitle("Next Round", for: .normal)
         button.backgroundColor = UIColor.rgb(red: 43, green: 203, blue: 151)
-        button.layer.cornerRadius = 10
-        button.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 20)
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 12)
         button.layer.shadowColor = UIColor.SHADOWCOLOR202().cgColor
         button.layer.shadowOffset = CGSize.zero
         button.layer.shadowRadius = 1.5
@@ -88,6 +89,10 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.GRAY()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         setupUI()
     }
     
@@ -97,10 +102,10 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
         view.backgroundColor = UIColor.GRAY()
         
         view.addSubview(bgView)
-        bgView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 30, paddingLeft: 50, paddingBottom: -140, paddingRight: 50, width: 0, height: 0)
+        bgView.anchor(top: navigationController?.navigationBar.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
       
         bgView.addSubview(titleLabel)
-        titleLabel.anchor(top: bgView.topAnchor, left: bgView.leftAnchor, bottom: nil, right: nil, paddingTop: 25, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        titleLabel.anchor(top: bgView.topAnchor, left: bgView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         bgView.addSubview(roundLabel)
         roundLabel.anchor(top: titleLabel.bottomAnchor, left: titleLabel.leftAnchor, bottom: nil, right: nil, paddingTop: 15, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 180, height: 0)
@@ -109,25 +114,52 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.anchor(top: roundLabel.bottomAnchor, left: bgView.leftAnchor, bottom: bgView.bottomAnchor, right: bgView.rightAnchor, paddingTop: 30, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         
         view.addSubview(nextRoundButton)
-        nextRoundButton.anchor(top: bgView.bottomAnchor, left: nil, bottom: nil, right: nil, paddingTop: 30, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 200, height: 50)
-        nextRoundButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        nextRoundButton.anchor(top: bgView.topAnchor, left: nil, bottom: nil, right: bgView.rightAnchor, paddingTop: 30, paddingLeft: 20, paddingBottom: 0,  paddingRight: 0, width: 150, height: 45)
+        //nextRoundButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         updateRoundLabel()
+    }
+    
+    func registerCells() {
+        tableView.register(MatchupTableViewCell.self, forCellReuseIdentifier: tableViewCellId)
     }
     
     func updateRoundLabel() {
         roundLabel.text = "Round: \(currentRound) / \(numberOfMatchPairs)"
     }
     
-    
     @objc func toNextRound() {
-        print("NextRoundPressed")
+        setScores()
         setResults()
+        setPlayersWithSameWins()
+        
         currentRound += 1
-        startNextRound()
-       // beginNextRound()
-        updateRoundLabel()
-        nextRoundButton.isEnabled = false
-        tableView.reloadData()
+
+    }
+    
+//
+//    @objc func toNextRound() {
+//
+//
+//
+//        //print("NextRoundPressed")
+//        //print("PlayersList: \(playersList)")
+//        //setResults()
+//
+//        currentRound += 1
+//        //startNextRound()
+//
+////       // beginNextRound()
+////        updateRoundLabel()
+////        nextRoundButton.isEnabled = false
+////        tableView.reloadData()
+//    }
+//
+    
+    func setPlayersWithSameWins() {
+
+        for index in 0...currentRound {
+            
+        }
     }
     
     func setResults() {
@@ -139,15 +171,12 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
             results.append(player2)
         }
         matchPairs.removeAll()
+        
+        for result in results {
+            print("result: \(result.name) wins: \(result.totalWins)")
+        }
     }
-    
 
-    
-    
-    func registerCells() {
-        //tableView.register(UITableViewCell.self, forCellWithReuseIdentifier: tableViewCellId)
-        tableView.register(MatchupTableViewCell.self, forCellReuseIdentifier: tableViewCellId)
-    }
 
     
     func checkIfAllMatchupsCompleted() {
@@ -166,23 +195,26 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
     func updateBlackPlayerResults(index: Int) {
         // Player1 is always the white player
 
-        self.matchPairs[index].matchComplete = true
-        matchPairs[index].player1.totalLosses += 1
-        matchPairs[index].player2.didWin = true
-        matchPairs[index].player2.totalWins += 1
-        checkIfAllMatchupsCompleted()
+        if self.matchPairs[index].matchComplete == false {
+            self.matchPairs[index].matchComplete = true
+            matchPairs[index].player1.totalLosses += 1
+            matchPairs[index].player2.didWin = true
+            matchPairs[index].player2.totalWins += 1
+            checkIfAllMatchupsCompleted()
+        }
+        
     }
     
     func updateWhitePlayerResults(index: Int) {
-        // Player1 is always the white player
+        
+        if self.matchPairs[index].matchComplete == false {
+            self.matchPairs[index].matchComplete = true
+            matchPairs[index].player1.totalWins += 1
+            matchPairs[index].player1.didWin = true
 
-        self.matchPairs[index].matchComplete = true
-
-        matchPairs[index].player1.totalWins += 1
-        matchPairs[index].player1.didWin = true
-
-        matchPairs[index].player2.totalLosses += 1
-        checkIfAllMatchupsCompleted()
+            matchPairs[index].player2.totalLosses += 1
+            checkIfAllMatchupsCompleted()
+        }
     }
     
     func updateDraw(index: Int) {
@@ -199,8 +231,11 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
     func startNextRound() {
         sortPlayers()
     }
-    
     func sortPlayers() {
+        listMatchUps()
+    }
+
+    func sortPlayersT() {
         var allPlayersWithSameWins = sameWins()
         let maxPossibleWins = currentRound - 1
         var playersWithSameWins: [Player] = []
@@ -215,7 +250,6 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
                     oddPlayer = playersWithSameWins[0]
                 } else {
                     oddPlayer = playersWithSameWins[0]
-                    listMatchUps()
                     playersToSetPairs = setForOddPlayer(allPlayersWithSameWins: allPlayersWithSameWins, sectionOfOddPlayer: section)
                     allPlayersWithSameWins = playersToSetPairs
                     playersWithSameWins = playersToSetPairs[section]
@@ -223,7 +257,7 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
                     listMatchUps()
                 }
             } else if playersWithSameWins.count % 2 == 0  { // even number
-                
+                setPair(players: allPlayersWithSameWins)
             }
         }
     }
@@ -273,10 +307,7 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
         matchPairs.append(contentsOf: pairs)
         print("pairs: count: \(pairs.count)")
         print("MatchPairs: count: \(matchPairs.count)")
-        
     }
-    
-    
     
     func sameWins() -> [[Player]]  {
         var group: [[Player]] = []
@@ -295,97 +326,6 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
         return group
     }
     
-//    func beginNextRound() {
-//        // check who won last round
-//        //print("\n")
-//        print("-------------------- Round \(String(currentRound)) --------------------")
-//        print("\n")
-//        print("MMATCHPAIRS:: \(matchPairs)")
-//
-//        let highestPossibleScore = currentRound - 1
-//
-//        var playersWithSameResults: [Player] = []
-//        for index in 0...highestPossibleScore {
-//            for player in results {
-//                if player.totalWins == index {
-//                    playersWithSameResults.append(player)
-//                }
-//            }
-//            print("PLAYERS WITH SAME RES:: \(playersWithSameResults)")
-//
-//            //print("START: ", playersWithSameResults, "\n")
-//
-//            if (playersWithSameResults.count % 2 != 0) {
-//                if playersWithSameResults.count == 1 {
-//                    let oddPlayer = playersWithSameResults[0]
-//                    playersWithSameResults.append(oddPlayer)
-//                } else if playersWithSameResults.count > 1 {
-//                    print("GOT HERTE")
-//                    let oddPlayer = playersWithSameResults[0]
-//                    playersWithSameResults.remove(at: 0)
-//                    setPairs(playerList: playersWithSameResults)
-//                    listMatchUps()
-//                    playersWithSameResults.removeAll()
-//                    playersWithSameResults.append(oddPlayer)
-//                } else {
-//                    print("Something went wrong players with same results count: \(playersWithSameResults.count)")
-//                }
-//
-//
-//            } else {
-//                print("GOT EVEN")
-//                setPairs(playerList: playersWithSameResults)
-//                listMatchUps()
-//            }
-//        }
-//        playersWithSameResults.removeAll()
-//    }
-    
-//    func setPairs(playerList: [Player]) {
-//
-//        if playerList.count % 2 == 0 { // check if we have even number of players
-//
-//            // Here we need to randomly set two people together
-//            var playersListHolder = playerList
-//
-//            let numOfMatchPairs = playersListHolder.count / 2
-//            var matchPair = MatchPair(player1: nil, player2: nil, players: nil, result: nil, matchComplete: nil)
-//            for index in 1...numOfMatchPairs { // looping through the number of pairs
-//
-//                var pair : [Player] = []
-//
-//                for index in 1...2 { // loop through twice to pick 2 people
-//                    let randomIndex = Int(arc4random_uniform(UInt32(playersListHolder.count))) // getting a random index
-//                    let player = playersListHolder[randomIndex]
-//                    pair.append(player)
-//                    playersListHolder.remove(at: randomIndex)
-//                }
-//                matchPair.player1 = pair[0]
-//                matchPair.player2 = pair[1]
-//
-//                var player1PreviousBoardColor = matchPair.player1.boardColor
-//                var player2PreviousBoardColor = matchPair.player2.boardColor
-//
-//                if player1PreviousBoardColor == "White" && player2PreviousBoardColor == "Black" {
-//                    matchPair.player1.boardColor = "Black"
-//                    matchPair.player2.boardColor = "White"
-//
-//                } else if player1PreviousBoardColor == "Black" && player2PreviousBoardColor == "White" {
-//                    matchPair.player1.boardColor = "White"
-//                    matchPair.player2.boardColor = "Black"
-//                } else {
-//                    matchPair.player1.boardColor = "White"
-//                    matchPair.player2.boardColor = "Black"
-//                }
-//
-//                matchPairs.append(matchPair)
-//                //allMatchPairs.append(matchPair)
-//                pair.removeAll()
-//            }
-//        } else {
-//        }
-//    }
-    
     func listMatchUps() {
         for matchPair in matchPairs {
             var player1 = matchPair.player1
@@ -393,7 +333,6 @@ class TournamentViewController: UIViewController, UITableViewDelegate, UITableVi
             
             print(player1.boardColor + ": " + player1.name, "(\(String(player1.totalWins))W \(String(player1.totalLosses))L)" + "   VS   " + player2.boardColor + ": " + player2.name, "(\(String(player2.totalWins))W \(String(player2.totalLosses))L)")
         }
-        
     }
     
     

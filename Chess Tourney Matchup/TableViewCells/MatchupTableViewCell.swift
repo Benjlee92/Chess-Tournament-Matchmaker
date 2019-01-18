@@ -44,7 +44,7 @@ class MatchupTableViewCell: UITableViewCell {
     let resultLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = ""
-        lbl.font = UIFont(name: "Roboto-Regular", size: 35)
+        lbl.font = UIFont(name: "Roboto-Regular", size: 20)
         lbl.textAlignment = .center
         lbl.textColor = UIColor.white
         return lbl

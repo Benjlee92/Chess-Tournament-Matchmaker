@@ -11,6 +11,7 @@ import  UIKit
 
 protocol CreateTournamentOptionsDelegate: class {
     func hideOverlay()
+    func toAddPlayersVC(numberOfPlayers: Int)
 }
 
 class CreateTournamentOptionsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
@@ -36,7 +37,7 @@ class CreateTournamentOptionsViewController: UIViewController, UIPickerViewDeleg
     
     let titleLabel: UILabel = {
         let l = UILabel()
-        l.font = UIFont(name: "Roboto-Regular", size: 25)
+        l.font = UIFont(name: "Roboto-Regular", size: 22)
         l.textColor = UIColor.TEXTCOLOR()
         l.text = "Create Tournament"
         l.textAlignment = .left
@@ -63,7 +64,7 @@ class CreateTournamentOptionsViewController: UIViewController, UIPickerViewDeleg
     
     let cancelButton : UIButton = {
         let button = UIButton(type: .system)
-        let font = UIFont(name: "Roboto-Regular", size: 18)
+        let font = UIFont(name: "Roboto-Regular", size: 13)
         let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: UIColor.rgb(red: 252, green: 63, blue: 75)]
         let attributedString = NSAttributedString(string: "Cancel", attributes: attributes)
         //button.setTitle("Cancel", for: .normal)
@@ -130,7 +131,7 @@ class CreateTournamentOptionsViewController: UIViewController, UIPickerViewDeleg
     
     let continueButton: UIButton = {
         let button = UIButton(type: .system)
-        let font = UIFont(name: "Roboto-Medium", size: 20)
+        let font = UIFont(name: "Roboto-Medium", size: 15)
         let attributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: UIColor.white]
         let attributedString = NSAttributedString(string: "Continue", attributes: attributes)
         button.setAttributedTitle(attributedString, for: .normal)
@@ -151,62 +152,77 @@ class CreateTournamentOptionsViewController: UIViewController, UIPickerViewDeleg
         numberOfRoundsPicker.delegate = self
         
         view.addSubview(mainView)
-        mainView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 70, paddingLeft: 25, paddingBottom: 0, paddingRight: 25, width: 0, height: view.frame.height * 0.6)
+        mainView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 80, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: view.frame.height * 0.6)
         
         mainView.addSubview(cancelButton)
-        cancelButton.anchor(top: mainView.topAnchor, left: nil, bottom: nil, right: mainView.rightAnchor, paddingTop: 60, paddingLeft: 0, paddingBottom: 0, paddingRight: 25, width: 60, height: 45)
+        cancelButton.anchor(top: nil, left: nil, bottom: nil, right: mainView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 25, width: 60, height: 45)
         
         mainView.addSubview(titleLabel)
-        titleLabel.anchor(top: mainView.topAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 35, paddingLeft: 30, paddingBottom: 0, paddingRight: 0, width: 0, height: 27)
-        
+        titleLabel.anchor(top: mainView.topAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 25, paddingLeft: 20, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
         cancelButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor).isActive = true
 
-        
-        view.addSubview(randomLabel)
-        randomLabel.anchor(top: titleLabel.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 70, paddingLeft: 35, paddingBottom: 0, paddingRight: 0, width: 0, height: 18)
-        
-        view.addSubview(randomSwitch)
-        randomSwitch.anchor(top: titleLabel.bottomAnchor, left: nil, bottom: nil, right: mainView.rightAnchor, paddingTop: 50, paddingLeft: 0, paddingBottom: 0, paddingRight: 35, width: 0, height: 50)
-        randomSwitch.centerYAnchor.constraint(equalTo: randomLabel.centerYAnchor).isActive = true
-        
-        view.addSubview(basedOnRatedLabel)
-        basedOnRatedLabel.anchor(top: randomLabel.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 50, paddingLeft: 35, paddingBottom: 0, paddingRight: 0, width: 0, height: 18)
-        
-        view.addSubview(ratedSwitch)
-        ratedSwitch.anchor(top: randomLabel.bottomAnchor, left: nil, bottom: nil, right: mainView.rightAnchor, paddingTop: 50, paddingLeft: 0, paddingBottom: 0, paddingRight: 35, width: 0, height: 50)
-        ratedSwitch.centerYAnchor.constraint(equalTo: basedOnRatedLabel.centerYAnchor).isActive = true
-        
-        view.addSubview(numberOfPlayersLabel)
-        numberOfPlayersLabel.anchor(top: basedOnRatedLabel.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 35, paddingBottom: 0, paddingRight: 0, width: 140, height: 18)
-        
-        view.addSubview(numberOfPlayersTextfield)
-        numberOfPlayersTextfield.anchor(top: nil, left: numberOfPlayersLabel.rightAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 50, paddingLeft: 25, paddingBottom: 0, paddingRight: 35, width: 0, height: 50)
-        numberOfPlayersTextfield.centerYAnchor.constraint(equalTo: numberOfPlayersLabel.centerYAnchor).isActive = true
         numberOfPlayersTextfield.inputView = numberOfPlayersPicker
         numberOfPlayersTextfield.delegate = self
-        
-        view.addSubview(numberOfRoundsLabel)
-        numberOfRoundsLabel.anchor(top: numberOfPlayersTextfield.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: nil, paddingTop: 50, paddingLeft: 35, paddingBottom: 0, paddingRight: 0, width: 140, height: 18)
-        
-        view.addSubview(numberOfRoundsTextfield)
-        numberOfRoundsTextfield.anchor(top: nil, left: numberOfRoundsLabel.rightAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 50, paddingLeft: 25, paddingBottom: 0, paddingRight: 35, width: 0, height: 50)
-        numberOfRoundsTextfield.centerYAnchor.constraint(equalTo: numberOfRoundsLabel.centerYAnchor).isActive = true
+
         numberOfRoundsTextfield.inputView = numberOfRoundsPicker
         numberOfRoundsTextfield.delegate = self
         
-        view.addSubview(continueButton)
-        continueButton.anchor(top: nil, left: mainView.leftAnchor, bottom: mainView.bottomAnchor, right: mainView.rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: -20, paddingRight: 20, width: 0, height: 65)
+        let switchStackView = UIStackView(arrangedSubviews: [randomSwitch, ratedSwitch])
+        switchStackView.distribution = .equalSpacing
+        switchStackView.axis = .vertical
+        let switchLabelStackView = UIStackView(arrangedSubviews: [randomLabel, basedOnRatedLabel])
+        switchLabelStackView.distribution = .equalSpacing
+        switchLabelStackView.axis = .vertical
+
+        let mainSwitchStackView = UIStackView(arrangedSubviews: [switchLabelStackView, switchStackView])
+        
+        
+        let playersRoundsStackView = UIStackView(arrangedSubviews: [numberOfPlayersLabel, numberOfRoundsLabel])
+        numberOfPlayersLabel.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        numberOfRoundsLabel.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        numberOfPlayersLabel.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        numberOfRoundsLabel.heightAnchor.constraint(equalToConstant: 35).isActive = true
+
+        playersRoundsStackView.distribution = .equalSpacing
+        playersRoundsStackView.axis = .vertical
+        
+
+        let textfieldStackView = UIStackView(arrangedSubviews: [numberOfPlayersTextfield, numberOfRoundsTextfield])
+        numberOfPlayersTextfield.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        numberOfRoundsTextfield.heightAnchor.constraint(equalToConstant: 35).isActive = true
+        textfieldStackView.distribution = .equalSpacing
+        textfieldStackView.axis = .vertical
+        let mainPlayersRoundsStackView = UIStackView(arrangedSubviews: [playersRoundsStackView, textfieldStackView])
+        
+        mainPlayersRoundsStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        mainView.addSubview(mainSwitchStackView)
+        mainSwitchStackView.anchor(top: titleLabel.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 45, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 80)
+        
+        mainView.addSubview(mainPlayersRoundsStackView)
+        mainPlayersRoundsStackView.anchor(top: mainSwitchStackView.bottomAnchor, left: mainView.leftAnchor, bottom: nil, right: mainView.rightAnchor, paddingTop: 45, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 90)
+        
+        mainView.addSubview(continueButton)
+        continueButton.anchor(top: nil, left: mainView.leftAnchor, bottom: mainView.bottomAnchor, right: mainView.rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: -20, paddingRight: 20, width: 0, height: 50)
+        
+        disableContinueButton()
         
     }
     
     @objc func handleCancel() {
         self.delegate?.hideOverlay()
-        dismiss(animated: true) {
-        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func handleContinue() {
-        print("pressed")
+        //let addPlayersViewController = AddPlayersViewController()
+        //addPlayersViewController.numberOfPlayers = self.numberOfPlayers
+        //navigationController?.pushViewController(addPlayersViewController, animated: true)
+        self.dismiss(animated: true) {
+            self.delegate?.hideOverlay()
+            self.delegate?.toAddPlayersVC(numberOfPlayers: self.numberOfPlayers)
+        }
+
     }
     
     @objc func checkCriteriaCompleteForRandomSwitch() {

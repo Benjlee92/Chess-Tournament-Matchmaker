@@ -10,10 +10,9 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .red
+        backgroundColor = .lightGray
         layer.cornerRadius = 8
     }
     

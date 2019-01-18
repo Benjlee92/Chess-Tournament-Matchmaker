@@ -12,6 +12,7 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let homeCollectionViewCellId = "homeCollectionViewCellId"
     let createTournamentCollectionViewCellId = "createTournamentCollectionViewCellId"
+    let createBracketTournamentCollectionViewCellId = "createBracketTournamentCollectionViewCellId"
     
     let navBar: UINavigationBar = {
         let nav = UINavigationBar()
@@ -65,12 +66,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     fileprivate func setupUI() {
         view.backgroundColor = UIColor.GRAY()
         
-        view.addSubview(navBar)
-        navBar.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
-
-        navBar.prefersLargeTitles = true
         view.addSubview(homeCollectionView)
-        homeCollectionView.anchor(top: navBar.bottomAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        homeCollectionView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+        homeCollectionView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        homeCollectionView.alwaysBounceVertical = true
         
         view.addSubview(overlay)
         overlay.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
@@ -97,21 +96,33 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
+    func toAddPlayersVC(numberOfPlayers: Int) {
+        let addPlayersVC = AddPlayersViewController()
+        addPlayersVC.numberOfPlayers = numberOfPlayers
+        navigationController?.pushViewController(addPlayersVC, animated: true)
+    }
     
     
     fileprivate func registerCells() {
         homeCollectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: homeCollectionViewCellId)
-        homeCollectionView.register(CreateTournamentCollectionViewCell.self, forCellWithReuseIdentifier: createTournamentCollectionViewCellId)
+        homeCollectionView.register(CreateRegularTournamentCollectionViewCell.self, forCellWithReuseIdentifier: createTournamentCollectionViewCellId)
+         homeCollectionView.register(CreateBracketTournamentCollectionViewCell.self, forCellWithReuseIdentifier: createBracketTournamentCollectionViewCellId)
 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
+        let collectionViewSize = homeCollectionView.frame.size.width - 40
+
         switch indexPath.item {
         case 0:
-            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: createTournamentCollectionViewCellId, for: indexPath) as! CreateTournamentCollectionViewCell
+            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: createTournamentCollectionViewCellId, for: indexPath) as! CreateRegularTournamentCollectionViewCell
+            cell.imgHeight = collectionViewSize/2.5
             return cell
-
+        
+        case 1:
+            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: createBracketTournamentCollectionViewCellId, for: indexPath) as! CreateBracketTournamentCollectionViewCell
+            cell.imgHeight = collectionViewSize/2.5
+            return cell
         default:
             let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: homeCollectionViewCellId, for: indexPath) as! HomeCollectionViewCell
             return cell
@@ -124,12 +135,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let padding: CGFloat =  50
         let collectionViewSize = homeCollectionView.frame.size.width - 40
-//
-//        return CGSize(width: collectionViewSize/2, height: collectionViewSize/2)
-        
-        return CGSize(width: collectionViewSize, height: collectionViewSize/2)
+        return CGSize(width: collectionViewSize, height: collectionViewSize/2.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -143,13 +150,15 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         switch indexPath.item {
         case 0:
             showOverlay()
-            present(createTournamentOptionsViewController, animated: true, completion: nil)
+            navigationController?.present(createTournamentOptionsViewController, animated: true, completion: nil)
             break
         default:
            break
             
         }
     }
+
+    
 
     /*
     // MARK: - Navigation
